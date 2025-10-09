@@ -1,3 +1,9 @@
+//this variable is outside of any function.
+let enemyLifeCount = 3;
+
+
+
+
 
 function makeChoice(heroChoice) {
 
@@ -34,6 +40,21 @@ function makeChoice(heroChoice) {
         winner = "no one";
     else
         winner = "enemy";
+
+
+    if(winner == "enemy") {
+        enemyLifeCount = enemyLifeCount - 1;
+        document.getElementById("enemyStatus").innerHTML = 
+            "Enemy has " + enemyLifeCount + " lives!";
+
+        if(enemyLifeCount == 0) {
+            alert("You defeated the enemy!");
+            //relative to the html file, not the javascript file!
+            sessionStorage.setItem("didPlayerWinRPS", "yes");
+            window.location.href = "../index.html"
+        }
+    }
+
 
     let result = "";
     result = result + "Hero has " + heroChoice + "<br>";
