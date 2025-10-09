@@ -1,0 +1,49 @@
+<html>
+<head>
+    <script>
+
+        //determine anyone's choice!
+        function getRandomChoice() {
+            let choice = "nothing, yet!";
+            let number = Math.random();
+
+            if(number > .33)
+                choice = "scissors";
+            else if(number > .66)
+                choice = "paper";
+            else 
+                choice = "rock";
+
+            return choice;
+        }
+
+        //everyone gets a random choice!
+        let heroChoice = getRandomChoice();
+        let enemyChoice = getRandomChoice();
+
+        console.log("Hero has " + heroChoice);
+        console.log("Enemy has " + enemyChoice);
+    
+        let winner = "no one, yet!";
+
+        //shortest (too short? no {}...)
+        if (heroChoice == "scissors" && enemyChoice == "rock")
+            winner = "hero";
+        else if (heroChoice == "paper" && enemyChoice == "rock")
+            winner = "hero";
+        else if (heroChoice == "rock" && enemyChoice == "scissors")
+            winner = "hero";
+        else if (heroChoice == enemyChoice) //you might tie!
+            winner = "no one";
+        else
+            winner = "enemy";
+
+        console.log("Winner: " +  winner)
+    </script>
+
+</head>
+
+<body>
+
+</body>
+</html>
